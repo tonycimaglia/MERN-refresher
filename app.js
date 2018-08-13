@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const app = express()
 
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
 
 const db = mongoose.connection
 
