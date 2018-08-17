@@ -1,6 +1,6 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
-const { User } = require('./schema')
+const User = require('./models/User')
 
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
