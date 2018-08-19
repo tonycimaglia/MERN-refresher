@@ -10,4 +10,15 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/:id', async (req, res) => {
+    try {
+        const userId = req.params.id
+        const user = await User.findById(userId)
+        res.json(user)
+    }   catch (err) {
+        console.log(err)
+        res.json(err)
+    }
+})
+
 module.exports = router
