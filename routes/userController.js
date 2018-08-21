@@ -12,14 +12,14 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-      const newUser = req.body
-      const savedUser = await User.create(newUser)
-      res.json(savedUser)
+        const newUser = req.body
+        const savedUser = await User.create(newUser)
+        res.json(savedUser)
     } catch (err) {
-      console.log(err)
-      res.status(500).json(err)
+        console.log(err)
+        res.status(500).json(err)
     }
-  })
+})
 
 router.get('/:id', async (req, res) => {
     try {

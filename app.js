@@ -18,11 +18,12 @@ db.on('open', () => {
     console.log('Connected to MongoDB')
 })
 
+app.use(logger('dev'))
+app.use(bodyParser.json())
+
 const userController = require('./routes/userController')
 app.use('/api/users', userController)
 
-app.use(logger('dev'))
-app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
     res.send('hello world!')
