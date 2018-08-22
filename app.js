@@ -18,16 +18,21 @@ db.on('open', () => {
     console.log('Connected to MongoDB')
 })
 
+app.use(express.static(`${__dirname}/client/build`))
+
 app.use(logger('dev'))
 app.use(bodyParser.json())
 
 const userController = require('./routes/userController')
 app.use('/api/users', userController)
 
-
-app.get('/', (req, res) => {
-    res.send('hello world!')
+app.get('/*', (req, res) => {
+    res.sendFile`${__dirname}/client/build/index.html`
 })
+
+// app.get('/', (req, res) => {
+//     res.send('hello world!')
+// })
 
 const PORT = process.env.PORT || 3001
 
