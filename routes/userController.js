@@ -32,4 +32,16 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+router.put('/:id', async (req, res) => {
+    try {
+        const userId = req.params.id
+        const updatedUser = req.body
+        const savedUser = await User.findByIdAndUpdate(userId, updatedUser)
+        res.json(savedUser)
+    }   catch (err) {
+        console.log(err)
+        res.status(500).json(err)
+    }
+})
+
 module.exports = router
