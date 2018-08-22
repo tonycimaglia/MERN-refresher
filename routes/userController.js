@@ -44,4 +44,17 @@ router.put('/:id', async (req, res) => {
     }
 })
 
+router.delete('/:id', async (req, res) => {
+    try {
+        const userId = req.params.id
+        await User.findByIdAndRemove(userId)
+        res.json({
+            msg: 'Successfully Deleted'
+        })
+    }   catch (err) {
+        console.log(err)
+        res.status(500).json(err)
+    }
+})
+
 module.exports = router
