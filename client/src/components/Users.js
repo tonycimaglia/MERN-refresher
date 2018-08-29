@@ -22,6 +22,9 @@ class Users extends Component {
         return (
             <div>
                 <h1>This is the Users Page</h1>
+                {this.state.users.map(user => (
+                    <h3>User Name: {user.userName}</h3>
+                ))}
             </div>
         )
     }
